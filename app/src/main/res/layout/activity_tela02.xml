@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Tela02">
 
@@ -24,6 +24,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -46,10 +47,12 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#142947">
+                app:cardBackgroundColor="#142947"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -60,10 +63,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#1E484E">
+                app:cardBackgroundColor="#1E484E"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -75,10 +80,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#3A3564">
+                app:cardBackgroundColor="#3A3564"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -90,10 +97,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card4"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#702626">
+                app:cardBackgroundColor="#702626"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -101,14 +110,16 @@
                     android:layout_height="wrap_content"
                     android:scaleType="fitXY"
                     app:srcCompat="@android:drawable/presence_busy"
-                    tools:srcCompat="@drawable/bongocat" />
+                    tools:srcCompat="@drawable/ocarinaoftime" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card5"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#943668">
+                app:cardBackgroundColor="#943668"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView7"
