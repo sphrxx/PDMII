@@ -115,9 +115,19 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
 
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
+        handler.removeCallbacks(this);
         mediaPlayer.release();
-        mediaPlayer = null;
+        this.mediaPlayer = null;
         seekBar.setProgress(0);
+        indiceLista++;
+
+        if(indiceLista >= lista.size()){
+            indiceLista = 0;
+        }
+
+        textoMusicaSeleciona.setText("Música selecionada: " + lista.get(indiceLista).getNome());
+        stop();
+        play();
     }
 
     @Override
