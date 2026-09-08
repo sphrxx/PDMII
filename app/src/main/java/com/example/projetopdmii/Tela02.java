@@ -31,7 +31,7 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
     private int musica, indiceLista;
     private ArrayList<Playlist> lista;
     private CardView card1, card2, card3, card4, card5;
-    private TextView textoMusicaSeleciona, textoMusicaTocando;
+    private TextView textoMusicaSeleciona, textoMusicaTocando, textoTempoAtual, textoTempoRestante;
     private ImageView imgPreview, imgNext;
 
     @SuppressLint("MissingInflatedId")
@@ -56,7 +56,7 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
         musica = R.raw.forrodofarol_quincasmoreira;
 
         lista = new ArrayList<Playlist>();
-        lista.add(new Playlist("GUARDIAN  - DELTARUNE", R.raw.guardian_deltarune));
+        lista.add(new Playlist("GUARDIAN - DELTARUNE", R.raw.guardian_deltarune));
         lista.add(new Playlist("MEGALOVANIA - UNDERTALE", R.raw.megalovania));
         lista.add(new Playlist("Eleventh Hour - ONESHOT", R.raw.eleventhhour_oneshot));
         lista.add(new Playlist("Zelda's Lullaby - Legend of Zelda", R.raw.zeldalullaby));
@@ -73,14 +73,27 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
         card5 = findViewById(R.id.card5);
         card5.setOnClickListener(this);
         textoMusicaSeleciona = findViewById(R.id.textView);
-        textoMusicaTocando = findViewById(R.id.textView2);
 
         imgPreview = findViewById(R.id.imageView);
         imgPreview.setOnClickListener(this);
         imgNext = findViewById(R.id.imageView2);
         imgNext.setOnClickListener(this);
 
+        textoTempoAtual = findViewById(R.id.textView3);
+        textoTempoRestante = findViewById(R.id.textView4);
     }
+
+    public String formatarTempo(int tempo) {
+        int segundos = tempo/1000;
+        int minutos = segundos/60;
+
+        segundos = segundos % 60;
+
+        String tempoFormatado = String.format("%02d:%02d", minutos, segundos);
+        return tempoFormatado;
+    }
+
+
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -153,8 +166,21 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
     @Override
     public void run() {
         if(mediaPlayer != null) {
+            int tempoAtual = mediaPlayer.getCurrentPosition();
+            int duracao = mediaPlayer.getDuration();
+            int tempoRestante = duracao - tempoAtual;
+
+            textoTempoAtual.setText(formatarTempo(tempoAtual));
+            textoTempoRestante.setText("-" + formatarTempo(tempoRestante));
+
             seekBar.setProgress(mediaPlayer.getCurrentPosition());
             handler.postDelayed(this, 1000);
+
+
+
+
+
+
         }
 
     }
@@ -224,7 +250,8 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
     public void play() {
         if(mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(this, lista.get(indiceLista).getMusica());
-            textoMusicaTocando.setText("Música tocando: " + lista.get(indiceLista).getNome());
+            toolbar.setTitle(lista.get(indiceLista).getNome());
+            toolbar.setSubtitle(Integer.toString(indiceLista+1) + " de " + Integer.toString(lista.size()));
             mediaPlayer.setOnCompletionListener(this);
             seekBar.setMax(mediaPlayer.getDuration());
             handler.post(this);

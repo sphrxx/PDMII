@@ -53,13 +53,6 @@
         android:layout_marginLeft="10dp"
         android:text="Musica Selecionada" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Musica Tocando" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
