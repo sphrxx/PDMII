@@ -31,7 +31,7 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
     private int musica, indiceLista;
     private ArrayList<Playlist> lista;
     private CardView card1, card2, card3, card4, card5;
-    private TextView textoMusicaSeleciona, textoMusicaTocando, textoTempoAtual, textoTempoRestante;
+    private TextView textoMusicaSeleciona, textoTempoAtual, textoTempoRestante;
     private ImageView imgPreview, imgNext;
 
     @SuppressLint("MissingInflatedId")
@@ -156,7 +156,7 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
         if(mediaPlayer != null) {
-            mediaPlayer.seekTo(seekBar.getProgress());
+            mediaPlayer.seekTo(seekBar.getProgress()); // Atualizar música de acordo com a seekBar
         }
 
 
