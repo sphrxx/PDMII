@@ -60,7 +60,7 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
         lista.add(new Playlist("MEGALOVANIA - UNDERTALE", R.raw.megalovania));
         lista.add(new Playlist("Eleventh Hour - ONESHOT", R.raw.eleventhhour_oneshot));
         lista.add(new Playlist("Zelda's Lullaby - Legend of Zelda", R.raw.zeldalullaby));
-        lista.add(new Playlist("Devil Eyes - Hippie Sabottage", R.raw.devileyes));
+        lista.add(new Playlist("Dark Light - Night Lovell", R.raw.darklight));
 
         card1 = findViewById(R.id.card1);
         card1.setOnClickListener(this);

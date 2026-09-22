@@ -1,8 +1,10 @@
 package com.example.projetopdmii;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,9 +13,15 @@ import java.util.ArrayList;
 
 public class SlideAdapter extends RecyclerView.Adapter<SlideHolder> {
     private ArrayList<Slide> lista;
+    private TextView textoScroll;
 
     public SlideAdapter(ArrayList<Slide> lista) {
         this.lista = lista;
+    }
+
+    public SlideAdapter(ArrayList<Slide> lista, TextView textoScroll) {
+        this.lista = lista;
+        this.textoScroll = textoScroll;
     }
 
     @NonNull
@@ -26,8 +34,12 @@ public class SlideAdapter extends RecyclerView.Adapter<SlideHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull SlideHolder holder, int position) {
+        Log.d("##", lista.get(position).getNome()+" "+ lista.get(position).getTexto());
+        textoScroll.setText(lista.get(position).getTexto());
         holder.titulo.setText(lista.get(position).getNome());
         holder.imagem.setImageResource(lista.get(position).getImagem());
+
+
     }
 
     @Override

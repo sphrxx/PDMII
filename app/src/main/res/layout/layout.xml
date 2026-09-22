@@ -7,9 +7,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:backgroundTint="#3A6FD8"
+        android:backgroundTint="#003A6FD8"
         app:cardCornerRadius="20dp">
 
         <LinearLayout
@@ -28,7 +28,8 @@
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 app:srcCompat="@drawable/ocarinaoftime" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
