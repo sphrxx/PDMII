@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/iddrawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -60,21 +60,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card1"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="0.20"
                 app:cardBackgroundColor="#142947"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/deltarune" />
             </androidx.cardview.widget.CardView>
@@ -82,15 +83,16 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/card2"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="0.20"
                 app:cardBackgroundColor="#1E484E"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/undertale"
                     tools:srcCompat="@drawable/undertale" />
@@ -99,15 +101,16 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/card3"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="0.20"
                 app:cardBackgroundColor="#3A3564"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/oneshot"
                     tools:srcCompat="@drawable/oneshot" />
@@ -116,15 +119,16 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/card4"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="0.20"
                 app:cardBackgroundColor="#702626"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/ocarinaoftime"
                     tools:srcCompat="@drawable/ocarinaoftime" />
@@ -133,15 +137,16 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/card5"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="0.20"
                 app:cardBackgroundColor="#943668"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView7"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/bmwm4competition"
                     tools:srcCompat="@drawable/bmwm4competition" />

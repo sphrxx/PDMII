@@ -29,7 +29,7 @@ public class Tela03 extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_tela03);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.iddrawer), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -55,7 +55,20 @@ public class Tela03 extends AppCompatActivity implements View.OnClickListener {
         lista.add(new Slide("Nissan 350Z", R.drawable.nissan_350z, "Clássico japonês do NFSU2."));
 
         SlideAdapter adapter = new SlideAdapter(lista, textoScroll);
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                textoScroll.setText(lista.get(position).getTexto());
+            }
+        });
+
         viewPager.setAdapter(adapter);
+
+
+
+
     }
 
     @Override
