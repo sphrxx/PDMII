@@ -1,6 +1,7 @@
 package com.example.projetopdmii;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,16 +14,21 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, Runnable, View.OnClickListener {
+public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, Runnable, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
     private MediaPlayer mediaPlayer;
@@ -33,6 +39,11 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
     private CardView card1, card2, card3, card4, card5;
     private TextView textoMusicaSeleciona, textoTempoAtual, textoTempoRestante;
     private ImageView imgPreview, imgNext;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,7 +51,7 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_tela02);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.iddrawer), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.linearlayout2), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -48,6 +59,7 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar); // Concede o poder de Actionbar à Toolbar
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Habilita o botão de "Voltar"
         seekBar = findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(this);
@@ -81,6 +93,43 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
 
         textoTempoAtual = findViewById(R.id.textView3);
         textoTempoRestante = findViewById(R.id.textView4);
+
+        drawerLayout = findViewById(R.id.iddrawer2);
+        navigationView = findViewById(R.id.navigationview2);
+
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if(menuItem.getItemId() == R.id.idhome) {
+                    drawerLayout.closeDrawers();
+                    return false;
+
+                }
+
+                if(menuItem.getItemId() == R.id.idtela02) {
+                    drawerLayout.closeDrawers();
+                    startActivity(new Intent(Tela02.this, Tela02.class));
+
+                }
+
+                if(menuItem.getItemId() == R.id.idtela03) {
+                    drawerLayout.closeDrawers();
+                    startActivity(new Intent(Tela02.this, Tela03.class));
+
+                }
+
+                return false;
+            }
+        });
+
+
+
+
     }
 
     public String formatarTempo(int tempo) {
@@ -271,4 +320,8 @@ public class Tela02 extends AppCompatActivity implements MediaPlayer.OnCompletio
         }
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
+    }
 }
